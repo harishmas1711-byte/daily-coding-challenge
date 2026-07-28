@@ -21,9 +21,18 @@ Space Complexity: O(1)
 ## Array
 |  |
 | ------- |
+| [0011-container-with-most-water](https://github.com/harishmas1711-byte/daily-coding-challenge/tree/master/0011-container-with-most-water) |
 | [0136-single-number](https://github.com/harishmas1711-byte/daily-coding-challenge/tree/master/0136-single-number) |
 ## Bit Manipulation
 |  |
 | ------- |
 | [0136-single-number](https://github.com/harishmas1711-byte/daily-coding-challenge/tree/master/0136-single-number) |
+## Two Pointers
+|  |
+| ------- |
+| [0011-container-with-most-water](https://github.com/harishmas1711-byte/daily-coding-challenge/tree/master/0011-container-with-most-water) |
+## Greedy
+|  |
+| ------- |
+| [0011-container-with-most-water](https://github.com/harishmas1711-byte/daily-coding-challenge/tree/master/0011-container-with-most-water) |
 <!---LeetCode Topics End-->
