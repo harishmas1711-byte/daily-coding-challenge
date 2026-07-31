@@ -35,4 +35,8 @@ Space Complexity: O(1)
 |  |
 | ------- |
 | [0011-container-with-most-water](https://github.com/harishmas1711-byte/daily-coding-challenge/tree/master/0011-container-with-most-water) |
+## Math
+|  |
+| ------- |
+| [0507-perfect-number](https://github.com/harishmas1711-byte/daily-coding-challenge/tree/master/0507-perfect-number) |
 <!---LeetCode Topics End-->
