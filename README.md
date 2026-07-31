@@ -39,4 +39,17 @@ Space Complexity: O(1)
 |  |
 | ------- |
 | [0507-perfect-number](https://github.com/harishmas1711-byte/daily-coding-challenge/tree/master/0507-perfect-number) |
+| [0509-fibonacci-number](https://github.com/harishmas1711-byte/daily-coding-challenge/tree/master/0509-fibonacci-number) |
+## Dynamic Programming
+|  |
+| ------- |
+| [0509-fibonacci-number](https://github.com/harishmas1711-byte/daily-coding-challenge/tree/master/0509-fibonacci-number) |
+## Recursion
+|  |
+| ------- |
+| [0509-fibonacci-number](https://github.com/harishmas1711-byte/daily-coding-challenge/tree/master/0509-fibonacci-number) |
+## Memoization
+|  |
+| ------- |
+| [0509-fibonacci-number](https://github.com/harishmas1711-byte/daily-coding-challenge/tree/master/0509-fibonacci-number) |
 <!---LeetCode Topics End-->
