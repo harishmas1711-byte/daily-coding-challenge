@@ -1,0 +1,28 @@
+1.class Solution {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+
+        HashSet<Integer> windowNums = new HashSet<>();
+        int start = 0;
+        int end = 0;
+
+        while (end < nums.length) {
+            if (!windowNums.add(nums[end])) return true;
+            if (end - start == k) windowNums.remove(nums[start++]);
+            end++;
+        }
+
+        return false;
+    }
+}
+2.class Solution {
+    public int largestPerimeter(int[] nums) {
+        
+        Arrays.sort(nums);
+        for(int i = nums.length-1; i>1; i--){ 
+           if(nums[i] < nums[i-1] + nums[i-2])
+               return  nums[i] + nums[i-1]+ nums[i-2];   
+        }
+        return 0;
+    }
+   
+ }
