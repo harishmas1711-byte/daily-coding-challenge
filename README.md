@@ -52,4 +52,12 @@ Space Complexity: O(1)
 |  |
 | ------- |
 | [0509-fibonacci-number](https://github.com/harishmas1711-byte/daily-coding-challenge/tree/master/0509-fibonacci-number) |
+## Hash Table
+|  |
+| ------- |
+| [0290-word-pattern](https://github.com/harishmas1711-byte/daily-coding-challenge/tree/master/0290-word-pattern) |
+## String
+|  |
+| ------- |
+| [0290-word-pattern](https://github.com/harishmas1711-byte/daily-coding-challenge/tree/master/0290-word-pattern) |
 <!---LeetCode Topics End-->
