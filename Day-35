@@ -1,0 +1,47 @@
+1.lass Solution {
+    public int findMin(int[] nums) {
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+
+            if (nums[mid] <= nums[right]) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+
+        return nums[left];        
+    }
+}
+2.class Solution {
+
+    int cntSetBits(int num) {
+        return Integer.bitCount(num);
+    }
+
+    String formatTime(int h, int m) {
+        String formattedTime = h + ":";
+
+        if (m < 10) {
+            formattedTime += "0";
+        }
+        formattedTime += m;
+        return formattedTime;
+    }
+
+    public List<String> readBinaryWatch(int turnedOn) {
+        List<String> times = new ArrayList<>();
+
+        for (int h = 0; h <= 11; h++) {
+            for (int m = 0; m <= 59; m++) {
+                if (cntSetBits(h) + cntSetBits(m) == turnedOn) {
+                    times.add(formatTime(h, m));
+                }
+            }
+        }
+        return times;
+    }
+}
