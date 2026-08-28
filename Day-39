@@ -1,0 +1,28 @@
+1.class Solution {
+    public int xorOperation(int n, int start) {
+        int ans = 0;
+
+        while (n-- > 0) {
+            ans ^= start;
+            start += 2;
+        }
+
+        return ans;
+    }
+}
+2.class Solution {
+    public int diagonalSum(int[][] mat) {
+        int n = mat.length;
+        int ans = 0;
+
+        for (int i = 0; i < n; i++) {
+            ans += mat[i][i];
+            ans += mat[n - 1 - i][i];
+        }
+        if (n % 2 != 0) {
+            ans -= mat[n / 2][n / 2];
+        }
+
+        return ans;
+    }
+}
