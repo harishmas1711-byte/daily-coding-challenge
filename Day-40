@@ -1,0 +1,33 @@
+1.class Solution {
+    public int mySqrt(int x) {
+        if (x < 2) return x;
+
+        int left = 1, right = x / 2;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            long square = (long) mid * mid;
+
+            if (square == x) {
+                return mid;
+            } else if (square < x) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        return right;        
+    }
+}
+2.class Solution {
+    public int titleToNumber(String columnTitle) {
+        long ans = 0;
+        for (int i = 0; i < columnTitle.length(); i++) {
+            char ch = columnTitle.charAt(i);
+            ans = ans * 26 + (ch - 'A' + 1);
+        }
+
+        return (int) ans;
+    }
+}
