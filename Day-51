@@ -1,0 +1,67 @@
+1.class Solution {
+    public int totalNumbers(int[] digits) {
+        Set<Integer> seen = new HashSet<>();
+        int n = digits.length;
+
+        for (int h = 0; h < n; h++) {
+            if (digits[h] == 0) continue;
+
+            for (int t = 0; t < n; t++) {
+                if (t == h) continue;
+
+                for (int u = 0; u < n; u++) {
+                    if (u == h || u == t) continue;
+
+                    if (digits[u] % 2 != 0) continue;
+
+                    int num = digits[h] * 100 + digits[t] * 10 + digits[u];
+                    seen.add(num);
+                }
+            }
+        }
+
+        return seen.size();
+    }
+}
+2.class Solution {
+    public String decodeString(String s) {
+        if (s == null || s.length() == 0) return s;
+        
+        int currNum = 0;
+        Stack<Integer> intStack = new Stack<>();
+        Stack<String> strStack = new Stack<>();
+
+        for (char x : s.toCharArray()) {
+            if (x >= '0' && x <= '9') {
+                currNum = (currNum * 10) + (x - '0');
+            } else {
+                if (x == '[') {
+                    intStack.push(currNum);
+                    currNum = 0;
+                    strStack.push(String.valueOf(x));
+                } else if (x == ']') {
+                    String temp = "";
+                    while (!strStack.isEmpty() && !strStack.peek().equals("[")) {
+                        temp = strStack.pop() + temp;
+                    }
+                    strStack.pop(); // Remove "["
+                    
+                    int num = intStack.pop();
+                    StringBuilder tempAns = new StringBuilder();
+                    for (int i = 0; i < num; ++i) {
+                        tempAns.append(temp);
+                    }
+                    strStack.push(tempAns.toString());
+                } else {
+                    strStack.push(String.valueOf(x));
+                }
+            }
+        }
+        
+        String ans = "";
+        while (!strStack.isEmpty()) {
+            ans = strStack.pop() + ans;
+        }
+        return ans;
+    }
+}
