@@ -1,0 +1,43 @@
+1.class Solution {
+    int ans = 0;
+
+    public int findTilt(TreeNode root) {
+        helper(root);
+        return ans;
+    }
+
+    public int helper(TreeNode root) {
+        if (root == null) return 0;
+
+        int left = helper(root.left);
+        int right = helper(root.right);
+        ans += Math.abs(left - right);
+
+        return root.val + left + right;
+    }
+}
+2.class Solution {
+    public int minDiffInBST(TreeNode root) 
+    {
+        List<Integer> ans=new ArrayList<>();
+        inorder(root,ans);
+
+        int minValue=Integer.MAX_VALUE;
+        for(int i=1;i<ans.size();i++)
+        {
+            minValue=Math.min(ans.get(i)-ans.get(i-1),minValue);
+        }  
+        return minValue; 
+    }
+
+    private void inorder(TreeNode root,List<Integer> arr)
+    {
+        if(root==null)
+        {
+            return;
+        }
+        inorder(root.left,arr);
+        arr.add(root.val);
+        inorder(root.right,arr);
+    }
+}
