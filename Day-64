@@ -1,0 +1,108 @@
+1.class Bucket {
+    private List<Integer> container;
+
+    public Bucket() {
+        this.container = new LinkedList<Integer>();
+    }
+
+    public void insert(int val) {
+        int index = this.container.indexOf(val);
+        
+        if(index == -1) this.container.addFirst(val);
+    }
+
+    public void remove(int val) {
+        this.container.remove((Integer) val);
+    }
+
+    public boolean contains(int val) {
+        int index = this.container.indexOf(val);
+        return index != -1;
+    }
+}
+class MyHashSet {
+    int numBuckets = 769;
+    Bucket[] buckets;
+
+    public MyHashSet() {
+        this.buckets = new Bucket[this.numBuckets];
+
+        for(int i=0; i<numBuckets; i++) {
+            this.buckets[i] = new Bucket();
+        }
+    }
+
+    private int getIndex(int key) {
+        return key % numBuckets;
+    }
+    
+    public void add(int key) {
+        int bucketIndex = this.getIndex(key);
+        this.buckets[bucketIndex].insert(key);
+    }
+    
+    public void remove(int key) {  
+        int bucketIndex = this.getIndex(key);
+        this.buckets[bucketIndex].remove(key);
+    }
+    
+    public boolean contains(int key) {
+        int bucketIndex = this.getIndex(key);
+        return this.buckets[bucketIndex].contains(key);
+    }
+}
+
+/**
+ * Your MyHashSet object will be instantiated and called as such:
+ * MyHashSet obj = new MyHashSet();
+ * obj.add(key);
+ * obj.remove(key);
+ * boolean param_3 = obj.contains(key);
+ */
+2.class Solution {
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
+        List<List<Integer>> adjacencyList = new ArrayList<>(numCourses);
+        int[] courseOrder = new int[numCourses];
+        int[] inDegree = new int[numCourses];
+        int coursesCompleted = 0;
+        int idx = 0;
+
+
+        for (int i = 0; i < numCourses; i++)
+            adjacencyList.add(new ArrayList<>());
+
+
+        for (int[] arr : prerequisites) {
+            adjacencyList.get(arr[1]).add(arr[0]);
+            inDegree[arr[0]]++;
+        }
+
+
+        Deque<Integer> q = new ArrayDeque<>();
+
+
+        for (int i = 0; i < numCourses; i++)
+            if (inDegree[i] == 0)
+                q.addLast(i);
+
+
+        while (!q.isEmpty()) {
+            int course = q.removeFirst();
+            courseOrder[idx] = course;
+            coursesCompleted++;
+            idx++;
+
+
+            for (int neighbour : adjacencyList.get(course)) {
+                inDegree[neighbour]--;
+
+
+                if (inDegree[neighbour] == 0)
+                    q.addLast(neighbour);
+            }
+        }
+
+
+        return coursesCompleted == numCourses ? courseOrder : new int[0];
+    }
+}
